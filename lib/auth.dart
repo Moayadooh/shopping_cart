@@ -6,28 +6,29 @@ class Auth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 320,
+      height: 240,
       color: Colors.grey[300],
-      child: Stack(
-        children: [
-          Positioned(
-            left: 24,
-            top: 75,
-            child: Container(
-              width: 140,
+      child: Center(
+        child: Container(
+          width: 300,
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
               color: Colors.green[300],
-              child: const Text(
-                'Hello',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none,
-                ),
-              ),
+              borderRadius: const BorderRadius.all(Radius.circular(8))),
+          child: const Text(
+            'Lorem ipsum dolor sit amet, consec etur',
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 1,
+            style: TextStyle(
+              fontFamily: 'Roboto',
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              decoration: TextDecoration.none,
             ),
           ),
-        ],
+        ),
       ),
     );
   }
