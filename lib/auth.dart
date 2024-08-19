@@ -1,33 +1,42 @@
 import 'package:flutter/material.dart';
 
-class Auth extends StatelessWidget {
+class Auth extends StatefulWidget {
   const Auth({super.key});
 
   @override
+  State<Auth> createState() {
+    return _Auth();
+  }
+}
+
+class _Auth extends State<Auth> {
+  int _counter = 0;
+  void _increment() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 320,
-      height: 240,
-      color: Colors.grey[300],
-      child: Center(
-        child: Container(
-          width: 300,
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-              color: Colors.green[300],
-              borderRadius: const BorderRadius.all(Radius.circular(8))),
-          child: const Text(
-            'Lorem ipsum dolor sit amet, consec etur',
-            textAlign: TextAlign.center,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 1,
-            style: TextStyle(
-              fontFamily: 'Roboto',
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              decoration: TextDecoration.none,
+    return Scaffold(
+      body: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: _increment,
+              child: const Text(
+                'Increment',
+              ),
             ),
-          ),
+            const SizedBox(
+              width: 16,
+            ),
+            Text(
+              'Count: $_counter',
+            ),
+          ],
         ),
       ),
     );
